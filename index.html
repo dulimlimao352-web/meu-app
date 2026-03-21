@@ -1,0 +1,46 @@
+cat calculadora.html
+<!DOCTYPE html>
+<html>
+<head>                                                <title>Calculadora</title>
+    <style>
+        body { background: #1a1a2e; display: flex; justify-content: center; padding: 30px; }
+        .calc { background: #16213e; border-radius: 20px; padding: 20px; width: 300px; }
+        .tela { background: #0f3460; color: white; font-size: 30px; text-align: right; padding: 15px; border-radius: 10px; margin-bottom: 15px; }
+        button { background: #e94560; color: white; border: none; width: 65px; height: 65px; font-size: 22px; border-radius: 10px; margin: 5px; cursor: pointer; }                                              .zero { width: 135px; }
+        .igual { background: #0f3460; }
+    </style>
+</head>
+<body>
+    <div class="calc">
+        <div class="tela" id="tela">0</div>
+        <button onclick="digita('7')">7</button>
+        <button onclick="digita('8')">8</button>
+        <button onclick="digita('9')">9</button>
+        <button onclick="digita('/')">/</button>
+        <button onclick="digita('4')">4</button>
+        <button onclick="digita('5')">5</button>
+        <button onclick="digita('6')">6</button>
+        <button onclick="digita('*')">*</button>
+        <button onclick="digita('1')">1</button>
+        <button onclick="digita('2')">2</button>
+        <button onclick="digita('3')">3</button>
+        <button onclick="digita('-')">-</button>
+        <button class="zero" onclick="digita('0')">0</button>
+        <button onclick="digita('.')">.</button>
+        <button onclick="digita('+')">+</button>
+        <button class="igual" onclick="calcular()">=</button>
+    </div>
+    <script>
+        let valor = '';
+        function digita(n) {
+            if (valor === '0') valor = '';
+            valor += n;
+            document.getElementById('tela').innerText = valor;
+        }
+        function calcular() {
+            valor = String(eval(valor));
+            document.getElementById('tela').innerText = valor;
+        }
+    </script>
+</body>
+  </html>
